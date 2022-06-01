@@ -20,7 +20,7 @@ exports.createPosts = (req, res) => {
     //extract the data from the req.body...
 
     const { title } = req.body;
-
+    console.log(title);
     posts[id] = {
         id, title
     };
