@@ -22,7 +22,7 @@ const CommentList = ({ postId }) => {
 
     useEffect(() => {
         fetchComments()
-    }, [])
+    }, [fetchComments])
 
 
 
