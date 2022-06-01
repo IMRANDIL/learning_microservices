@@ -50,3 +50,10 @@ exports.createComments = async (req, res) => {
 
 
 }
+
+
+
+exports.eventController = (req, res) => {
+    console.log(`received event ${req.body.type}`);
+    res.send({})
+}

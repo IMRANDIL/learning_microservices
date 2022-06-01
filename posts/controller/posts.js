@@ -43,4 +43,5 @@ exports.createPosts = async (req, res) => {
 
 exports.eventController = (req, res) => {
     console.log(`Received Event ${req.body.type}`);
+    res.send({})
 }
