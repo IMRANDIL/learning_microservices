@@ -20,6 +20,15 @@ const PostList = () => {
 
 
 
+    useEffect(() => {
+
+        fetchPosts()
+
+
+
+    }, [])
+
+
     return (
         <div>PostList</div>
     )
