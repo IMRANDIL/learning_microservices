@@ -26,11 +26,17 @@ const CommentList = ({ postId }) => {
 
 
 
-
+    const renderedComments = commentList.map((comment) => {
+        return <li key={comment.id}>
+            {comment.content}
+        </li>
+    })
 
 
     return (
-        <div>CommentList</div>
+        <ul>
+            {renderedComments}
+        </ul>
     )
 }
 
