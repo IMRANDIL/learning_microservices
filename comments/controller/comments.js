@@ -32,7 +32,7 @@ exports.createComments = async (req, res) => {
     //emit the events...to event bus..
     try {
         await axios.post('http://localhost:8005/events', {
-            type: 'commentCreated',
+            type: 'CommentCreated',
             data: {
                 id: commentId,
                 content,

@@ -15,11 +15,12 @@ exports.postEventsController = (req, res) => {
         const post = posts[postId];
         post.comments.push({ id, content });
     }
-
+    console.log(posts);
     res.send({});
 }
 
 
 exports.getEventsController = (req, res) => {
-    res.send(posts)
+    res.send(posts);
 }
+
