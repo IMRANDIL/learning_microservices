@@ -16,8 +16,8 @@ const PostCreate = () => {
     }
 
 
-    const handleInput = () => {
-
+    const handleInput = (e) => {
+        setTitle(e.target.value)
     }
 
 
