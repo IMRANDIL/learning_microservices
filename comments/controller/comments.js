@@ -1,4 +1,5 @@
 const { randomBytes } = require('crypto')
+const axios = require('axios');
 
 const commentsByPostId = {};
 
@@ -12,7 +13,7 @@ exports.getAllComments = (req, res) => {
 
 
 
-exports.createComments = (req, res) => {
+exports.createComments = async (req, res) => {
 
 
     const { id } = req.params
@@ -27,7 +28,25 @@ exports.createComments = (req, res) => {
     comments.push({ id: commentId, content });
 
     commentsByPostId[id] = comments;
-    res.status(201).send(comments);
+
+    //emit the events...to event bus..
+    try {
+        await axios.post('http://localhost:8005/events', {
+            type: 'commentCreated',
+            data: {
+                id: commentId,
+                content,
+                postId: id
+            }
+        })
+
+
+        res.status(201).send(comments);
+
+    } catch (error) {
+        console.log(error);
+    }
+
 
 
 }

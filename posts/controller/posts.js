@@ -1,5 +1,5 @@
 const { randomBytes } = require('crypto')
-
+const axios = require('axios');
 const posts = {};
 
 
@@ -13,7 +13,7 @@ exports.getAllPosts = (req, res) => {
 
 //create posts...controller....
 
-exports.createPosts = (req, res) => {
+exports.createPosts = async (req, res) => {
     //generating ids...
     const id = randomBytes(4).toString('hex');
 
@@ -24,9 +24,18 @@ exports.createPosts = (req, res) => {
     posts[id] = {
         id, title
     };
+    //emit the event...request...to event bus..
+    try {
+        await axios.post('http://localhost:8005/events', {
+            type: 'PostCreated',
+            data: { id, title }
+        })
+        //send the response now..
 
-    //send the response now..
+        res.status(201).send(posts[id]);
+    } catch (error) {
+        console.log(error);
+    }
 
-    res.status(201).send(posts[id]);
 
 }
