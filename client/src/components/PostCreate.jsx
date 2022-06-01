@@ -28,6 +28,12 @@ const PostCreate = () => {
 
 
 
+
+
+
+
+
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
