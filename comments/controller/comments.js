@@ -21,6 +21,7 @@ exports.createComments = (req, res) => {
     //extract data from req.body..
 
     const { content } = req.body;
+    console.log(content);
     const comments = commentsByPostId[id] || []
 
     comments.push({ id: commentId, content });
