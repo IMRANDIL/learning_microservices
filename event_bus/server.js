@@ -10,7 +10,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+//route ..
 
+app.use('/', require('./router/events'))
 
 
 
