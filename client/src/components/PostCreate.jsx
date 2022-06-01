@@ -30,7 +30,7 @@ const PostCreate = () => {
                     <label htmlFor="Title">Title:</label>
                     <input type="text" className='form-control' value={title} onChange={handleInput} />
                 </div>
-                <button className='btn btn-primary' style={{ marginTop: '15px' }}>Submit</button>
+                <button type='submit' className='btn btn-primary' style={{ marginTop: '15px' }}>Submit</button>
             </form>
         </div>
     )
