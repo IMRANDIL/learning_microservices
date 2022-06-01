@@ -21,6 +21,6 @@ app.use('/', require('./router/events'))
 
 //listen on some port..
 
-app.listen(process.env.PORT || 8005, () => {
-    console.log(`server runs on port: ${process.env.PORT || 8005}😆`);
+app.listen(8005, () => {
+    console.log(`server runs on port: 8005😆`);
 })
