@@ -1,5 +1,5 @@
-const { handleEvent } = require('../server');
-const posts = {}
+const { handleEvent, posts } = require('../server');
+
 
 
 
