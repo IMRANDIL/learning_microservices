@@ -1,9 +1,8 @@
 
 const posts = {}
 
-exports.postEventsController = (req, res) => {
-    //extract data from the req.body..
-    const { type, data } = req.body;
+
+const handleEvent = (type, data) => {
     if (type === 'PostCreated') {
         const { id, title } = data;
         posts[id] = { id, title, comments: [] }
@@ -27,8 +26,17 @@ exports.postEventsController = (req, res) => {
     }
 
 
+}
 
-    console.log(posts);
+
+
+
+exports.postEventsController = (req, res) => {
+    //extract data from the req.body..
+    const { type, data } = req.body;
+    handleEvent(type, data)
+
+
     res.send({});
 }
 
