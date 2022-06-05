@@ -10,11 +10,14 @@ exports.postEventsController = (req, res) => {
     }
 
     if (type === 'CommentCreated') {
-        const { id, content, postId } = data;
+        const { id, content, postId, status } = data;
 
         const post = posts[postId];
-        post.comments.push({ id, content });
+        post.comments.push({ id, content, status });
     }
+
+
+
     console.log(posts);
     res.send({});
 }

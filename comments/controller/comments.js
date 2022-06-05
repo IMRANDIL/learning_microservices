@@ -37,6 +37,7 @@ exports.createComments = async (req, res) => {
                 id: commentId,
                 content,
                 postId: id,
+                status: 'pending'
 
             }
         })
