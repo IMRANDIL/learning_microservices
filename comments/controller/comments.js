@@ -25,7 +25,7 @@ exports.createComments = async (req, res) => {
     console.log(content);
     const comments = commentsByPostId[id] || []
 
-    comments.push({ id: commentId, content });
+    comments.push({ id: commentId, content, status: 'pending' });
 
     commentsByPostId[id] = comments;
 
@@ -36,7 +36,8 @@ exports.createComments = async (req, res) => {
             data: {
                 id: commentId,
                 content,
-                postId: id
+                postId: id,
+
             }
         })
 
